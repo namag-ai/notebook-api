@@ -28,15 +28,14 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install pytest pytest-asyncio httpx motor
-					cd app/
 			
-			- name: Set Environment Variables
+      - name: Set Environment Variables
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
       - name: Run Tests
         run: pytest
-			
-			- name: Deploy
+
+      - name: Deploy
         run: uvicorn main:app --host 0.0.0.0 --port 8000
 
 

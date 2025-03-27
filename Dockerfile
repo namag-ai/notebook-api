@@ -14,9 +14,6 @@ COPY . .
 # Copy the .env file into the container
 COPY .env .env
 
-# Ensure python-dotenv is installed (add this to requirements.txt if not already present)
-RUN pip install python-dotenv
-
 # Set environment variables (optional, for local testing)
 ENV DATABASE_URL=${DATABASE_URL}
 
